@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, Box, IconButton } from "@mui/material";
 import {
+  // eslint-disable-next-line no-unused-vars
   PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
