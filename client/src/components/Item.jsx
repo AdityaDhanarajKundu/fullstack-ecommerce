@@ -14,7 +14,7 @@ function Item({ item, width }) {
   const [count, setCount] = useState(1); // to count the items
   const [isHovered, setIsHovered] = useState(false); // to check if the mouse is hovered over the item
   const {
-    pallette: { neutral },
+    palette: { neutral },
   } = useTheme();
   const { category, price, name, image } = item.attributes;
 
@@ -93,7 +93,7 @@ function Item({ item, width }) {
 
 Item.propTypes = {
   item: PropTypes.object.isRequired,
-  width: PropTypes.string.isRequired,
+  width: PropTypes.string,
 };
 
 export default Item;
