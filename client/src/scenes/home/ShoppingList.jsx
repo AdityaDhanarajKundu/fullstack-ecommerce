@@ -26,7 +26,6 @@ function ShoppingList() {
       { method: "GET" }
     ).then((response) => response.json());
 
-    console.log("itemsJson", itemsJson);
     dispatch(setItems(itemsJson.data));
   }
 
