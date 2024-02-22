@@ -41,7 +41,7 @@ export default function Navbar() {
           sx={{ "&:hover": { cursor: "pointer" } }}
           color={shades.secondary[500]}
         >
-          ShopEzz
+          <h1>ShopEzz</h1>
         </Box>
         <Box
           display={"flex"}
@@ -67,13 +67,14 @@ export default function Navbar() {
               },
             }}
           >
-          <IconButton 
-            onClick={() => dispatch(setIsCartOpen({}))}
-            sx={{ color: "black" }}>
-            <ShoppingBagOutlined />
-          </IconButton>
+            <IconButton
+              onClick={() => dispatch(setIsCartOpen({}))}
+              sx={{ color: "black" }}
+            >
+              <ShoppingBagOutlined />
+            </IconButton>
           </Badge>
-          
+
           <IconButton sx={{ color: "black" }}>
             <MenuOutlined />
           </IconButton>
