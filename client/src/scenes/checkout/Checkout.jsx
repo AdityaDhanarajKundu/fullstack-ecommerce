@@ -6,6 +6,11 @@ import * as yup from "yup";
 import { shades } from "../../theme";
 import Shipping from "./Shipping";
 import Payment from "./Payment";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY
+);
 
 const initialValues = {
   billingAddress: {
@@ -110,8 +115,31 @@ export default function Checkout() {
     actions.setTouched({});
   }
 
+  // stripe payment
   async function makePayment(values){
+    const stripe = await stripePromise;
+    const requestBody = {
+      userName: [values.firstName, values.lastName].join(" "),
+      email: values.email,
+      products: cart.map(({ id, count }) => ({
+        id,
+        count,
+      })),
+    };
 
+    const response = await fetch("http://localhost:1337/api/orders",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+    });
+    const session = await response.json();
+
+    // redirect to the payment confirmation page
+    await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
   }
     
   return (
@@ -161,7 +189,7 @@ export default function Checkout() {
                   setFieldValue={setFieldValue}
                 />
               )}
-              
+
               <Box display="flex" justifyContent="space-between" gap="50px">
                 {!isFirstStep && (
                   <Button
