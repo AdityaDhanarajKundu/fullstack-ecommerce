@@ -123,7 +123,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Zip Code"
+        label="PIN Code"
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.zipCode}
