@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IconButton, Box, Typography, useTheme, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 function Item({ item, width }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cart = useSelector((store) => store.cart.cart);
   const [count, setCount] = useState(1); // to count the items
   const [isHovered, setIsHovered] = useState(false); // to check if the mouse is hovered over the item
   const {
@@ -69,7 +70,10 @@ function Item({ item, width }) {
 
             {/* Button */}
             <Button
-              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+              onClick={() => {
+                dispatch(addToCart({ item: { ...item, count } }));
+                // console.log(cart);
+              }}
               sx={{ backgroundColor: shades.primary[300], color: "white" }}
             >
               Add to Cart
