@@ -10,6 +10,11 @@ This is a fullstack ecommerce web application built using Strapi for the backend
 - Adjust quantity: Users can adjust the quantity of items in their shopping cart.
 - Checkout: Users can proceed to checkout and make payments using the Stripe payment gateway.
 
+## Images
+
+<img src="https://media.licdn.com/dms/image/D562DAQGtTXTjJU3AyQ/profile-treasury-image-shrink_1920_1920/0/1708752529754?e=1713596400&v=beta&t=aPjUDCxOlIk3wLxOqGaS8WCBFg2rHS0nYaeiIRxOKuo" />
+<img src="https://media.licdn.com/dms/image/D562DAQHskOjNjrX9Cg/profile-treasury-image-shrink_800_800/0/1708752631087?e=1713596400&v=beta&t=eCCh8HG9-a8YwAefC-fJ54KnND1inWZEOwXe1cN8A9Y" />
+
 ## Technologies Used
 - **Backend**:
   - Strapi: Headless CMS used to create and manage the backend APIs.
